@@ -6,14 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { RoutesComponent } from './routes/RoutesComponent';
+import { ThemeProvider } from '@mui/material';
+import { LightTheme } from './themes/Light';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <RoutesComponent />
-  </React.StrictMode>
+  <ThemeProvider theme={LightTheme}>
+    <React.StrictMode>
+      <RoutesComponent />
+    </React.StrictMode>
+  </ThemeProvider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './index.css';
 import TextField from '@mui/material/TextField';
+import { styled } from '@mui/system';
+import { Button } from "@mui/material";
 
 export function Login(){
 
@@ -10,13 +12,10 @@ export function Login(){
 
     return(
         <div className="container-login">
-            <div className="container-image-login">
-                <img src="" alt="ola" />
-            </div>
             <div className="container-form-login">
-                <TextField id="standard-basic" label="Email" value={email} onChange={(event) => setEmail(event.target.value)} variant="outlined" fullWidth />
-                <TextField id="standard-basic" label="Password" value={password} onChange={(event) => setPassword(event.target.value)} variant="outlined" fullWidth />
-                <button onClick={() => console.log(email)}>Enviar</button>
+                <TextField id="standard-basic" color="primary" label="Email" value={email} onChange={(event) => setEmail(event.target.value)} variant="filled" fullWidth />
+                <TextField id="standard-basic" color="primary" label="Password" value={password} onChange={(event) => setPassword(event.target.value)} variant="filled" fullWidth />
+                <Button color="primary">Enviar</Button>
             </div>
         </div>
     );
