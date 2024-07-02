@@ -1,4 +1,4 @@
-.container-login{
+.container-cadastro{
     width: 100%;
     height: 100%;
     display: flex;
@@ -7,9 +7,9 @@
     justify-content: center;
 }
 
-.container-form-login{
+.container-form-cadastro{
     width: 25%;
-    height: 70%;
+    height: 90%;
     display: flex;
     gap: 60px;
     flex-direction: column;
@@ -24,15 +24,15 @@
     color: red;
 }
 
-.link-cadastro{
+.link-login{
     color: white;
 }
 
-.container-btn-enviar{
+.container-btn-enviar-cadastro{
     width: 100%;
 }
 
-.container-input{
+.container-input-cadastro{
     width: 100%;
     gap: 10px;
     display: flex;
@@ -41,7 +41,7 @@
     flex-direction: column;
 }
 
-.container-form-login button{
+.container-form-cadastro button{
     width: 100%;
     height: 45px;
     border: none;
@@ -51,20 +51,20 @@
     font-size: 18px;
 }
 
-.container-form-login button:hover{
+.container-form-cadastro button:hover{
     background-color: rgb(145, 10, 10);
 }
 
-.input-login{
+.input-cadastro{
     backdrop-filter: blur(2px);
     background-color: transparent;
     color: white;
 }
 
-.input-login input{
+.input-cadastro input{
     color: white;
 }
 
-.input-login label{
+.input-cadastro label{
     color: rgb(255, 255, 255);
 }
