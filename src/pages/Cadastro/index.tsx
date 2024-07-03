@@ -25,7 +25,6 @@ export function Cadastro(){
             <div className="container-form-cadastro">
                 <h1 className="title">Cadastro</h1>
                 <div className="container-input-cadastro">
-                    <TextField id="standard-basic" className="input-cadastro" label="Name" value={name} onChange={(event) => setName(event.target.value)} variant="filled" fullWidth />
                     <TextField id="standard-basic" className="input-cadastro" label="Cpf" value={cpf} onChange={(event) => setCpf(event.target.value)} variant="filled" fullWidth />
                     <TextField id="standard-basic" className="input-cadastro" label="Email" value={email} onChange={(event) => setEmail(event.target.value)} variant="filled" fullWidth />
                     <TextField id="standard-basic" className="input-cadastro" label="Password" value={password} onChange={(event) => setPassword(event.target.value)} variant="filled" fullWidth />
