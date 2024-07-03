@@ -1,0 +1,20 @@
+.container-img{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #ffffff00;
+    border-radius: 5px;
+}
+
+.container-img:hover{
+    transition: 0.1s;
+    border: solid 2px #ffffff;
+}
+
+.container-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}

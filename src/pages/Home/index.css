@@ -1,0 +1,54 @@
+.container-geral{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.painel-principal{
+    animation: 3.5s ease-out 0s 1 initOpacity;
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.painel-principal img{
+    width: 50%;
+}
+
+.titleSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    padding-left: 10px;
+    animation: 3s ease-out 0s 1 slideFromBottom;
+}
+
+.containerTitles{ 
+    width: 100%;
+}
+
+@keyframes initOpacity{
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromBottom{
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
