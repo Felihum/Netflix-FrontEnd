@@ -6,7 +6,8 @@ export type usuarioType = {
     cpf: string,
     email: string,
     password: string,
-    birthday: string
+    birthday: string,
+    idSubscription: number
 }
 
 export async function GetAllUsuarios(){
@@ -40,7 +41,7 @@ export async function PostUsuario(usuario: usuarioType){
 
         const data = {
             ...usuario,
-            birthday: new Date(usuario.birthday).toISOString()
+            birthday: new Date(usuario.birthday).toISOString(),
         };
 
         const response = await api.post("/usuarios", data, config);

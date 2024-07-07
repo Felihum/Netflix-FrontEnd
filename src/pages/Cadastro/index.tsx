@@ -12,11 +12,13 @@ export function Cadastro(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [birthday, setBirthday] = useState<string>("");
+
+    const idSubscription: number = 1;
     
     const navigate = useNavigate();
     
     function Cadastrar(){
-        PostUsuario({name, cpf, email, password, birthday});
+        PostUsuario({name, cpf, email, password, birthday, idSubscription});
         navigate("/login");
     }
 

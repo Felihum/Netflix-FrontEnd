@@ -9,13 +9,13 @@ const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
 const settings = {
     dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    touchMove: true,
+    infinite: false,
+    speed: 1000,
+    slidesToShow: 7,
+    slidesToScroll: 7,
+    touchMove: false,
     useCSS: true,
-    arrows: false,
+    arrows: true,
     
   };
 
@@ -28,6 +28,14 @@ export function Home(){
             <div className="titleSection">
                 <div className="containerTitles">
                     <Slider {...settings}>
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
+                        <TitleCard />
                         <TitleCard />
                         <TitleCard />
                         <TitleCard />
