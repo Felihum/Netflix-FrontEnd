@@ -2,12 +2,11 @@ import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from
 import { api } from "../apiBaseURL";
 
 export type usuarioType = {
-    name: string,
     cpf: string,
     email: string,
     password: string,
     birthday: string,
-    idSubscription: number
+    idSubscription?: number
 }
 
 export async function GetAllUsuarios(){
@@ -42,8 +41,9 @@ export async function PostUsuario(usuario: usuarioType){
         const data = {
             ...usuario,
             birthday: new Date(usuario.birthday).toISOString(),
+            idSubscription: usuario.idSubscription
         };
-
+        console.log(data)
         const response = await api.post("/usuarios", data, config);
         console.log(response.status)
     }
