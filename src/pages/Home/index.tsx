@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
-import { TitlePage } from "../TitlePage";
+import { TitlePage } from "../../components/TitlePage";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
@@ -16,6 +16,14 @@ export function Home(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
+
+    const [title, setTitle] = useState<string>("");
+    const [releaseYear, setReleaseYear] = useState(0);
+    const [description, setDescription] = useState<any>();
+    const [type, setType] = useState<string>("");
+    const [seasons, setSeasons] = useState<any>();
+    const [image, setImage] = useState<any>();
+
 
     const settings = {
         dots: false,
@@ -28,11 +36,19 @@ export function Home(){
         arrows: true,
       };
 
+    function setTitleData(titleParam: string, releaseYearParam: number, typeParam: string, seasonsParam: any, imageParam: any, descriptionParam?: string){
+        setTitle(titleParam);
+        setReleaseYear(releaseYearParam);
+        setType(typeParam);
+        setSeasons(seasonsParam);
+        setImage(imageParam);
+        setDescription(descriptionParam)
+        setIsTitleOpen(true);
+    }
+
     async function fetchTitltes(){
         try{
             const data = await GetAllTitles();
-
-            console.log(data);
 
             setTitles(data);
         } catch(error){
@@ -56,7 +72,7 @@ export function Home(){
     if(isTitleOpen){
         return(
             <div className="container-geral">
-                <TitlePage />
+                <TitlePage setIsTitleOpen={setIsTitleOpen} title={title} releaseYear={releaseYear} description={description} type={type} seasons={seasons} image={image} />
             </div>
         );
     } else{
@@ -71,7 +87,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -82,7 +98,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -92,7 +108,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -102,7 +118,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -112,7 +128,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -122,7 +138,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard image={title.image} />
+                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
