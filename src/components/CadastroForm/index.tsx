@@ -5,7 +5,7 @@ import './index.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 import { Button } from "@mui/material";
-import { PostUsuario } from "../../controllers/UsuariosController";
+import { GetAllUsuarios, PostUsuario } from "../../controllers/UsuariosController";
 import { GetAllSubscriptions, subscriptionResponseType } from "../../controllers/SubscriptionsController";
 
 export function CadastroForm(){
@@ -13,6 +13,7 @@ export function CadastroForm(){
     async function fetchSubscriptions(){
         try{
             const data = await GetAllSubscriptions();
+            await GetAllUsuarios();
             setSubscriptions(data);
         }
         catch(error){

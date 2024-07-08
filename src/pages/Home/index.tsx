@@ -4,76 +4,121 @@ import "./index.css";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect, useState } from "react";
+import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
-const settings = {
-    dots: false,
-    infinite: false,
-    speed: 1000,
-    slidesToShow: 7,
-    slidesToScroll: 7,
-    touchMove: false,
-    useCSS: true,
-    arrows: true,
-    
-  };
+
 
 export function Home(){
+
+    const [titles, setTitles] = useState<titleResponseType[]>([]);
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 1000,
+        slidesToShow: titles.length > 5 ? 5 : titles.length,
+        slidesToScroll: titles.length > 5 ? 5 : 0,
+        touchMove: false,
+        useCSS: true,
+        arrows: true,
+      };
+
+    async function fetchTitltes(){
+        try{
+            const data = await GetAllTitles();
+
+            console.log(data);
+
+            setTitles(data);
+        } catch(error){
+            throw error;
+        }
+    }
+
+    useEffect(() => {
+        fetchTitltes();
+    }, []);
+
+    function shuffleArray(array: titleResponseType[]) {
+        let newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
     return(
         <div className="container-geral">
             <div className="painel-principal">
                 <img src={imageLogo}/>
             </div>
             <div className="titleSection">
-                <div className="containerTitles">
-                    <Slider {...settings}>
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                    </Slider>
+                <div className="containerSlider">
+                    <h3 className="title-label">Principais</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
-                <div className="containerTitles">
-                    <Slider {...settings}>
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                    </Slider>
+                
+                <div className="containerSlider">
+                    <h3 className="title-label">Recomendados para Você</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
-                <div className="containerTitles">
-                    <Slider {...settings}>
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                        <TitleCard />
-                    </Slider>
+                <div className="containerSlider">
+                    <h3 className="title-label">Ação</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Comédia</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Ficção</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Drama</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard title={title.title} />
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
             </div>
-            
-            
-            <Link to="login">Ir para Login</Link>
         </div>
     );
 }

@@ -9,22 +9,6 @@ import { GetAllSubscriptions } from "../../controllers/SubscriptionsController";
 import { CadastroForm } from "../../components/CadastroForm";
 
 export function Cadastro(){
-    const [cpf, setCpf] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [birthday, setBirthday] = useState<string>("");
-
-    const [openModalSub, setOpenModalSub] = useState(false);
-
-    const idSubscription: number = 1;
-    
-    const navigate = useNavigate();
-    
-    function Cadastrar(){
-        PostUsuario({cpf, email, password, birthday, idSubscription});
-        navigate("/login");
-    }
-
     return(
         <CadastroForm />
     );
