@@ -62,7 +62,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>
@@ -73,7 +73,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>
@@ -83,7 +83,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>
@@ -93,7 +93,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>
@@ -103,7 +103,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>
@@ -113,7 +113,7 @@ export function Home(){
                     <div className="containerTitles">
                         <Slider {...settings}>
                             {shuffleArray(titles).map((title) => (
-                                <TitleCard title={title.title} />
+                                <TitleCard image={title.image} />
                             ))}
                         </Slider>
                     </div>

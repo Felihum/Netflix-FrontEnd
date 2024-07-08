@@ -70,3 +70,15 @@
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 1367px){
+    .titleSection{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 45px;
+        padding-left: 35px;
+        animation: 1.5s ease-out 0s 1 slideFromBottom;
+    }
+}

@@ -3,14 +3,18 @@ import './index.css';
 const imgMando = require("../../images/mandaloriano.png");
 
 type titleCardProps = {
-    title: string,
+    image: string,
 
 }
 
 export function TitleCard(props: titleCardProps){
+
+
     return(
         <div className="container-img">
-            <img src={imgMando} alt="mandaloriano" />
+            {props.image && (
+                <img src={`data:image/png;base64,${props.image}`} alt="mandaloriano" />
+            )}
         </div>
     );    
 }
