@@ -4,6 +4,8 @@ import './index.css';
 type titleCardProps = {
     title: string,
     releaseYear: number,
+    gender: string,
+    duration: number,
     type: string,
     seasons: any,
     image: string,
@@ -13,7 +15,7 @@ type titleCardProps = {
     setType: (type: string) => void,
     setSeasons: (seasons: any) => void,
     setImage: (image: string) => void,*/
-    onClick: (title: string, releaseYear: number, type: string, seasons: any, image: any, description?: string) => void
+    onClick: (title: string, releaseYear: number, gender: string, duration: number, type: string, seasons: any, image: any, description?: string) => void
 }
 
 export function TitleCard(props: titleCardProps){
@@ -23,7 +25,7 @@ export function TitleCard(props: titleCardProps){
     }*/
 
     return(
-        <div className="container-img" onClick={() => props.onClick(props.title, props.releaseYear, props.type, props.seasons, props.image, props.description)}>
+        <div className="container-img" onClick={() => props.onClick(props.title, props.releaseYear, props.gender, props.duration, props.type, props.seasons, props.image, props.description)}>
             {props.image && (
                 <img src={props.image} alt="mandaloriano" />
             )}

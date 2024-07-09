@@ -23,6 +23,8 @@ export function Home(){
     const [type, setType] = useState<string>("");
     const [seasons, setSeasons] = useState<any>();
     const [image, setImage] = useState<any>();
+    const [gender, setGender] = useState<string>("");
+    const [duration, setDuration] = useState<number>(0);
 
 
     const settings = {
@@ -36,13 +38,15 @@ export function Home(){
         arrows: true,
       };
 
-    function setTitleData(titleParam: string, releaseYearParam: number, typeParam: string, seasonsParam: any, imageParam: any, descriptionParam?: string){
+    function setTitleData(titleParam: string, releaseYearParam: number, genderParam: string, durationParam: number, typeParam: string, seasonsParam: any, imageParam: any, descriptionParam?: string){
         setTitle(titleParam);
         setReleaseYear(releaseYearParam);
         setType(typeParam);
         setSeasons(seasonsParam);
         setImage(imageParam);
-        setDescription(descriptionParam)
+        setDescription(descriptionParam);
+        setDuration(durationParam);
+        setGender(genderParam)
         setIsTitleOpen(true);
     }
 
@@ -72,7 +76,7 @@ export function Home(){
     if(isTitleOpen){
         return(
             <div className="container-geral">
-                <TitlePage setIsTitleOpen={setIsTitleOpen} title={title} releaseYear={releaseYear} description={description} type={type} seasons={seasons} image={image} />
+                <TitlePage setIsTitleOpen={setIsTitleOpen} duration={duration} gender={gender} title={title} releaseYear={releaseYear} description={description} type={type} seasons={seasons} image={image} />
             </div>
         );
     } else{
@@ -87,7 +91,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} duration={title.duration} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -98,7 +102,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -108,7 +112,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -118,7 +122,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -128,7 +132,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>
@@ -138,7 +142,7 @@ export function Home(){
                         <div className="containerTitles">
                             <Slider {...settings}>
                                 {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title.title} description={title.description} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                                    <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
                                 ))}
                             </Slider>
                         </div>

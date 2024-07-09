@@ -9,6 +9,7 @@ export type titleResponseType = {
     id: number,
     title: string,
     releaseYear: number,
+    duration: number,
     gender: string,
     image: string,
     description?: string,
