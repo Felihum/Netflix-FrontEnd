@@ -13,7 +13,6 @@ export function CadastroForm(){
     async function fetchSubscriptions(){
         try{
             const data = await GetAllSubscriptions();
-            await GetAllUsuarios();
             setSubscriptions(data);
         }
         catch(error){

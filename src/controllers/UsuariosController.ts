@@ -6,6 +6,7 @@ export type usuarioType = {
     email: string,
     password: string,
     birthday: string,
+    role: string,
     idSubscription?: number
 }
 
@@ -41,6 +42,7 @@ export async function PostUsuario(usuario: usuarioType){
         const data = {
             ...usuario,
             birthday: new Date(usuario.birthday).toISOString(),
+            role: "comum",
             idSubscription: usuario.idSubscription
         };
         console.log(data)
