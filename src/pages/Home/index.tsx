@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitlePage } from "../../components/TitlePage";
+import { Header } from "../../components/Header";
+import { ModalPerfil } from "../../components/ModalPerfil";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
@@ -16,6 +18,7 @@ export function Home(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
+    const [modalPerfilOpen, setModalPerfilOpen] = useState<boolean>(false);
 
     const [title, setTitle] = useState<string>("");
     const [releaseYear, setReleaseYear] = useState(0);
@@ -82,6 +85,12 @@ export function Home(){
     } else{
         return(
             <div className="container-geral">
+                <div className="header-section">
+                    <Header modalPerfilOpen={modalPerfilOpen} onPerfilClick={setModalPerfilOpen}></Header>
+                </div>
+                <div className="modal-menu">
+                    {modalPerfilOpen ? <ModalPerfil /> : null}  
+                </div>
                 <div className="painel-principal">
                     <img src={imageLogo}/>
                 </div>

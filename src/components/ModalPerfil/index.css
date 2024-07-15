@@ -1,0 +1,42 @@
+.background-modal{
+    background-color: rgba(0, 0, 0, 0.493);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    animation: 0.1s ease-out 0s 1 fadeIn;
+    z-index: 12;
+}
+
+.container-modal-perfil{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(27, 26, 26);
+}
+
+.btn-menu{
+    width: 100%;
+    height: 70px;
+    padding-left: 20px;
+    background-color: rgb(36, 34, 34);
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn-menu:hover{
+    background-color: rgb(27, 26, 26);
+}
+
+@keyframes fadeIn{
+    0%{
+        padding-left: 30%;
+    }
+    100%{
+        padding-left: 0;
+    }
+}

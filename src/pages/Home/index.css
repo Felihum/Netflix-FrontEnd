@@ -12,7 +12,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+
+.modal-menu{
+    width: 100%;
+    height: 100%;
 }
 
 .painel-principal img{
@@ -26,7 +30,7 @@
     justify-content: flex-start;
     gap: 45px;
     padding-left: 45px;
-    animation: 1.5s ease-out 0s 1 slideFromBottom;
+    animation: 0.3s ease-out 0s 1 slideFromBottom;
 }
 
 .containerTitles{ 

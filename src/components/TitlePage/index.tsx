@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import "./index.css"
 import CSS from "csstype";
 import { FaChevronLeft } from "react-icons/fa";
+import { Header } from "../Header";
 
 type TitlePageProps = {
     title: string,
@@ -44,7 +45,7 @@ export function TitlePage(props: TitlePageProps){
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit quas laudantium consequuntur quaerat odio voluptatibus </p>
                 </div>
 
-                <div className="btn-section">
+                <div className="btn-play-section">
                     <Button className="btn-assistir" variant="contained" color="primary">Assistir</Button>
                     <Button className="btn-trailer" variant="contained" color="primary">Trailer</Button>
                 </div>
