@@ -12,6 +12,7 @@ export type titleResponseType = {
     duration: number,
     gender: string,
     image: string,
+    logo?: string,
     description?: string,
     type: string,
     ageRating: number,

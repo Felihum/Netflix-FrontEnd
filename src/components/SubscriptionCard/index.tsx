@@ -22,8 +22,9 @@ export function SubscriptionCard(props: SubscriptionCardProps){
         let password = props.password;
         let birthday = props.birthday;
         let idSubscription = props.id;
+        let role = "comum";
         
-        PostUsuario({cpf, email, password, birthday, idSubscription});
+        PostUsuario({cpf, email, password, birthday, role, idSubscription});
         navigate("/login");
     }
 
