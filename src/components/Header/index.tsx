@@ -1,23 +1,32 @@
+import { useState } from "react";
+import { ModalPerfil } from "../ModalPerfil";
 import "./index.css";
 import { MdAccountCircle } from "react-icons/md";
+import { IoMdHome } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io";
+import { MdLocalMovies } from "react-icons/md";
+import { PiTelevision } from "react-icons/pi";
 
-type HeaderType = {
-    modalPerfilOpen: boolean,
-    onPerfilClick: (modalPerfilOpen: boolean) => void
-}
+export function Header(){
+    const [modalPerfilOpen, setModalPerfilOpen] = useState<boolean>(false);
 
-export function Header(props: HeaderType){
     return(
-        <div className="header-container">
-            <div className="btn-section">
-                <button>Início</button>
-                <button>Descobrir</button>
-                <button>Filmes</button>
-                <button>Séries</button>
+        <div>
+            <div className="header-container">
+                <div className="btn-section">
+                    <div><IoMdHome className="icon"/><p>Inicio</p></div>
+                    <div><IoIosSearch className="icon"/><p>Descobrir</p></div>
+                    <div><MdLocalMovies className="icon"/><p>Filmes</p></div>
+                    <div><PiTelevision className="icon"/><p>Séries</p></div>
+                </div>
+                <div className="MyAccount-btn" onClick={() => setModalPerfilOpen(!modalPerfilOpen)}>
+                    <MdAccountCircle />
+                </div>
             </div>
-            <div className="MyAccount-btn" onClick={() => props.onPerfilClick(!props.modalPerfilOpen)}>
-                <MdAccountCircle />
+            <div className="modal-menu">
+                {modalPerfilOpen ? <ModalPerfil /> : null}  
             </div>
         </div>
+        
     );
 }

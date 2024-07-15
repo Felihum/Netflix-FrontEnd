@@ -8,6 +8,23 @@
     padding-left: 40px;
 }
 
+.btn-section div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.icon{
+    font-size: 22px;
+}
+
+.modal-menu{
+    padding-left: 0px;
+}
+
 .btn-section{
     width: 93%;
     height: 100%;

@@ -12,13 +12,10 @@ import { ModalPerfil } from "../../components/ModalPerfil";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
-
-
 export function Home(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
-    const [modalPerfilOpen, setModalPerfilOpen] = useState<boolean>(false);
 
     const [title, setTitle] = useState<string>("");
     const [releaseYear, setReleaseYear] = useState(0);
@@ -28,7 +25,6 @@ export function Home(){
     const [image, setImage] = useState<any>();
     const [gender, setGender] = useState<string>("");
     const [duration, setDuration] = useState<number>(0);
-
 
     const settings = {
         dots: false,
@@ -86,10 +82,7 @@ export function Home(){
         return(
             <div className="container-geral">
                 <div className="header-section">
-                    <Header modalPerfilOpen={modalPerfilOpen} onPerfilClick={setModalPerfilOpen}></Header>
-                </div>
-                <div className="modal-menu">
-                    {modalPerfilOpen ? <ModalPerfil /> : null}  
+                    <Header />
                 </div>
                 <div className="painel-principal">
                     <img src={imageLogo}/>
@@ -160,5 +153,4 @@ export function Home(){
             </div>
         );
     }
-    
 }

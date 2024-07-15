@@ -1,14 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
-import { Home } from './pages/Home';
-import { Login } from './pages/Login';
 import { RoutesComponent } from './routes/RoutesComponent';
 import { ThemeProvider } from '@mui/material';
 import { LightTheme } from './themes/Light';
-import { createContext } from 'vm';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
