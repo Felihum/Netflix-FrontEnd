@@ -82,7 +82,7 @@
     height: 45px;
 }
 
-@keyframes fadeIn{
+@keyframes opacityGrow{
     from{
         opacity: 0;
     }

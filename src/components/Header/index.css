@@ -8,6 +8,13 @@
     padding-left: 40px;
 }
 
+.modal-header{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    
+}
+
 .btn-section div{
     display: flex;
     justify-content: center;
@@ -58,4 +65,9 @@
 .btn-section button:hover{
     transition: 0.1s;
     border-bottom: 2px solid white;
+}
+
+.div-modal-perfil{
+    width: 100%;
+    height: 100%;
 }

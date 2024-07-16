@@ -25,7 +25,7 @@ export function TitlePage(props: TitlePageProps){
         width: "100%",
         height: "100%",
         display: "flex",
-        animation: "fadeIn 1s forwards",
+        animation: "opacityGrow 1s forwards",
         boxShadow: "inset 45rem 10px 60rem -30px rgba(0, 0, 0, 1)"
     }
 

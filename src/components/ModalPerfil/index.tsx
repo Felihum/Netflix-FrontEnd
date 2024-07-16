@@ -1,17 +1,24 @@
 import "./index.css";
 
-export function ModalPerfil(){
+type ModalPerfilProps = {
+    setModalPerfilOpen: (modalPerfilOpen: boolean) => void
+}
+
+export function ModalPerfil(props: ModalPerfilProps){
     return(
-        <div className="background-modal">
+        <div className="background-modal" onClick={() => props.setModalPerfilOpen(false)}>
             <div className="container-modal-perfil">
                 <div className="btn-menu">
-                    Configurações
+                    Conta
                 </div>
                 <div className="btn-menu">
-                    Configurações
+                    Trocar Perfil
                 </div>
                 <div className="btn-menu">
-                    Configurações
+                    Editar Perfis
+                </div>
+                <div className="btn-menu">
+                    Sair
                 </div>
             </div>
         </div>
