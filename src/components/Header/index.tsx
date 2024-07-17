@@ -17,9 +17,9 @@ export function Header(){
             <div className="header-container">
                 <div className="btn-section">
                     <div onClick={() => navigate("/")}><IoMdHome className="icon"/><p>Inicio</p></div>
-                    <div onClick={() => navigate("/login")}><IoIosSearch className="icon"/><p>Descobrir</p></div>
-                    <div onClick={() => navigate("/")}><MdLocalMovies className="icon"/><p>Filmes</p></div>
-                    <div onClick={() => navigate("/")}><PiTelevision className="icon"/><p>Séries</p></div>
+                    <div onClick={() => navigate("/search")}><IoIosSearch className="icon"/><p>Descobrir</p></div>
+                    <div onClick={() => navigate("/movies")}><MdLocalMovies className="icon"/><p>Filmes</p></div>
+                    <div onClick={() => navigate("/series")}><PiTelevision className="icon"/><p>Séries</p></div>
                 </div>
                 <div className="MyAccount-btn" onClick={() => setModalPerfilOpen(!modalPerfilOpen)}>
                     <MdAccountCircle />

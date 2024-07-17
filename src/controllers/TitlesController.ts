@@ -29,3 +29,43 @@ export async function GetAllTitles(){
         throw error;
     }
 }
+
+export async function GetAllMovies(){
+    try{
+        const data: titleResponseType[] = await GetAllTitles();
+
+        let filteredTitle = data.filter((title) => {
+            if(title.type === "filme"){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+
+        return filteredTitle;
+
+    } catch(error){
+        throw error;
+    }
+}
+
+export async function GetAllSeries(){
+    try{
+        const data: titleResponseType[] = await GetAllTitles();
+
+        let filteredTitle = data.filter((title) => {
+            if(title.type === "serie"){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+
+        return filteredTitle;
+        
+    } catch(error){
+        throw error;
+    }
+}

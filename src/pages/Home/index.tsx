@@ -49,7 +49,7 @@ export function Home(){
         setIsTitleOpen(true);
     }
 
-    async function fetchTitltes(){
+    async function fetchTitles(){
         try{
             const data = await GetAllTitles();
 
@@ -60,7 +60,7 @@ export function Home(){
     }
 
     useEffect(() => {
-        fetchTitltes();
+        fetchTitles();
     }, []);
 
     function shuffleArray(array: titleResponseType[]) {
