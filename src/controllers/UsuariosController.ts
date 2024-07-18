@@ -1,5 +1,6 @@
 import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from "axios";
 import { api } from "../apiBaseURL";
+import jwtDecode from 'jwt-decode';
 
 export type usuarioType = {
     cpf: string,
@@ -16,7 +17,7 @@ export async function GetAllUsuarios(){
 
         console.log(response.data);
     } catch(error){
-        console.log(error);
+        throw error;
     }
 }
 
@@ -27,7 +28,7 @@ export async function GetUsuarioByEmail(email:string){
         return response.data;
     }
     catch(error){
-        return error;
+        throw error;
     }
 }
 
@@ -50,6 +51,30 @@ export async function PostUsuario(usuario: usuarioType){
         console.log(response.status)
     }
     catch(error){
-        console.log(error);
+        throw error;
     }
+}
+
+export async function ExecuteLogin(email: string, password: string){
+    try{
+        const response = await api.post("/usuarios/login", {email, password});
+        const token = response.data.token;
+
+        localStorage.setItem("token", token);
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+export async function GetCurrentUsuario(){
+    const token = localStorage.getItem('token');
+
+    if(token){
+        const user = await GetUsuarioByEmail(jwtDecode<any>(token).email);
+        return user;
+    }
+
+    return null;
 }

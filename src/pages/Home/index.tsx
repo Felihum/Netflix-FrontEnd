@@ -9,6 +9,7 @@ import { GetAllTitles, titleResponseType } from "../../controllers/TitlesControl
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
 import { ModalPerfil } from "../../components/ModalPerfil";
+import { GetCurrentUsuario } from "../../controllers/UsuariosController";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 

@@ -1,0 +1,65 @@
+.container-perfis{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+
+.div-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.img-container{
+    transition: 0.3s;
+    width: 250px;
+    height: 250px;
+    border-radius: 360px;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+
+.img-container:hover{
+    transition: 0.3s;
+    border: 3px solid white;
+}
+
+.img-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 360px;
+}
+
+.div-img p{
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.button-add{
+    transition: 0.3s;
+    width: 250px;
+    height: 250px;
+    border-radius: 360px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(134, 5, 5);
+    font-size: 40px;
+    font-weight: 5;
+    color: rgb(0, 0, 0);
+}
+
+.button-add:hover{
+    color: rgb(255, 255, 255);
+    border: 3px solid white;
+}
+

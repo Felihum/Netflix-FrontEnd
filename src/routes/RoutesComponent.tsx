@@ -6,6 +6,7 @@ import { TitlePage } from '../components/TitlePage';
 import { Search } from '../pages/Search';
 import { Movies } from '../pages/Movies';
 import { Series } from '../pages/Series';
+import { Perfis } from '../pages/Perfis';
 
 export function RoutesComponent(){
   return(
@@ -17,6 +18,7 @@ export function RoutesComponent(){
         <Route path='search' element={<Search />} />
         <Route path='movies' element={<Movies />} />
         <Route path='series' element={<Series />} />
+        <Route path='perfis' element={<Perfis />} />
       </Routes>
     </BrowserRouter>
   );

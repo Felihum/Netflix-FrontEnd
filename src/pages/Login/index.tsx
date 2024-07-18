@@ -4,7 +4,7 @@ import './index.css';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 import { Button } from "@mui/material";
-import { GetAllUsuarios, GetUsuarioByEmail, usuarioType } from "../../controllers/UsuariosController";
+import { ExecuteLogin } from "../../controllers/UsuariosController";
 
 export function Login(){
 
@@ -15,17 +15,13 @@ export function Login(){
 
     const navigate = useNavigate();
 
-    function HandleLogin(){
-        const usuario = GetUsuarioByEmail(email);
-        usuario.then((data: usuarioType) => {
-            if(password == data.password){
-                navigate("/");
-            } else{
-                alert("Credenciais não correspondem!");
-                setEmail("");
-                setPassword("");
-            }
-        })
+    async function HandleLogin(){
+        try{
+            await ExecuteLogin(email, password);
+            navigate("/")
+        } catch(error){
+            throw error;
+        }
     }
 
     return(
