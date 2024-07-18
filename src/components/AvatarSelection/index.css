@@ -1,0 +1,10 @@
+.container-avatar-selection{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-section{
+    width: 95%;
+}

@@ -19,7 +19,7 @@ export function ModalPerfil(props: ModalPerfilProps){
                 <div className="btn-menu">
                     Conta
                 </div>
-                <div className="btn-menu" onClick={() => navigate("perfis")}>
+                <div className="btn-menu" onClick={() => navigate("/change-profile")}>
                     Trocar Perfil
                 </div>
                 <div className="btn-menu">

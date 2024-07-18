@@ -7,6 +7,7 @@ import { Search } from '../pages/Search';
 import { Movies } from '../pages/Movies';
 import { Series } from '../pages/Series';
 import { Perfis } from '../pages/Perfis';
+import { AddProfile } from '../pages/AddProfile';
 
 export function RoutesComponent(){
   return(
@@ -18,7 +19,8 @@ export function RoutesComponent(){
         <Route path='search' element={<Search />} />
         <Route path='movies' element={<Movies />} />
         <Route path='series' element={<Series />} />
-        <Route path='perfis' element={<Perfis />} />
+        <Route path='change-profile' element={<Perfis />} />
+        <Route path='add-profile' element={<AddProfile />} />
       </Routes>
     </BrowserRouter>
   );
