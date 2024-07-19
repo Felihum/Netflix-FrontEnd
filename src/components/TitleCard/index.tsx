@@ -9,13 +9,14 @@ type titleCardProps = {
     type: string,
     seasons: any,
     image: string,
+    logo: string,
     description?: string,
     /*setTitle: (title: string) => void,
     setReleaseYear: (releaseYear: number) => void,
     setType: (type: string) => void,
     setSeasons: (seasons: any) => void,
     setImage: (image: string) => void,*/
-    onClick: (title: string, releaseYear: number, gender: string, duration: number, type: string, seasons: any, image: any, description?: string) => void
+    onClick: (title: string, releaseYear: number, gender: string, duration: number, type: string, seasons: any, image: any, logo: any, description?: string) => void
 }
 
 export function TitleCard(props: titleCardProps){
@@ -25,7 +26,7 @@ export function TitleCard(props: titleCardProps){
     }*/
 
     return(
-        <div className="container-img" onClick={() => props.onClick(props.title, props.releaseYear, props.gender, props.duration, props.type, props.seasons, props.image, props.description)}>
+        <div className="container-img" onClick={() => props.onClick(props.title, props.releaseYear, props.gender, props.duration, props.type, props.seasons, props.image, props.logo, props.description)}>
             {props.image && (
                 <img src={props.image} alt="mandaloriano" />
             )}

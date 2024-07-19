@@ -16,6 +16,7 @@ export function Movies(){
     const [type, setType] = useState<string>("");
     const [seasons, setSeasons] = useState<any>();
     const [image, setImage] = useState<any>();
+    const [logo, setLogo] = useState<any>();
     const [gender, setGender] = useState<string>("");
     const [duration, setDuration] = useState<number>(0);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
@@ -30,7 +31,7 @@ export function Movies(){
         }
     }
 
-    function setTitleData(titleParam: string, releaseYearParam: number, genderParam: string, durationParam: number, typeParam: string, seasonsParam: any, imageParam: any, descriptionParam?: string){
+    function setTitleData(titleParam: string, releaseYearParam: number, genderParam: string, durationParam: number, typeParam: string, seasonsParam: any, imageParam: any, logoParam: any, descriptionParam?: string){
         setTitle(titleParam);
         setReleaseYear(releaseYearParam);
         setType(typeParam);
@@ -38,7 +39,8 @@ export function Movies(){
         setImage(imageParam);
         setDescription(descriptionParam);
         setDuration(durationParam);
-        setGender(genderParam)
+        setGender(genderParam);
+        setLogo(logoParam);
         setIsTitleOpen(true);
     }
 
@@ -49,7 +51,7 @@ export function Movies(){
     if(isTitleOpen){
         return(
             <div className="container-geral">
-                <TitlePage setIsTitleOpen={setIsTitleOpen} duration={duration} gender={gender} title={title} releaseYear={releaseYear} description={description} type={type} seasons={seasons} image={image} />
+                <TitlePage setIsTitleOpen={setIsTitleOpen} duration={duration} gender={gender} title={title} releaseYear={releaseYear} description={description} type={type} seasons={seasons} image={image} logo={logo} />
             </div>
         );
     } else{
@@ -64,7 +66,7 @@ export function Movies(){
                 <div className="grid-container">
                     <div className="grid-titles">
                         {titles.map((title) => (
-                            <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} onClick={setTitleData} />
+                            <TitleCard key={title.id} title={title.title} gender={title.gender} description={title.description} duration={title.duration} releaseYear={title.releaseYear} type={title.type} seasons={title.seasons} image={title.image} logo={title.logo} onClick={setTitleData} />
                         ))}
                     </div>
                 </div>

@@ -12,7 +12,8 @@ type TitlePageProps = {
     gender: string,
     type: string,
     seasons?: any,
-    image: any,
+    image: string,
+    logo: string,
     setIsTitleOpen: (isTitleOpen: boolean) => void
 }
 
@@ -36,7 +37,7 @@ export function TitlePage(props: TitlePageProps){
             </div>
             <div className="info-section">
                 <div className="imgLogo">
-                    <img src={require("../../images/avengers_avengers.png")} alt="" />
+                    <img src={props.logo} alt="" />
                 </div>
                 <div className="releaseYearText">
                     <p>{props.releaseYear} - 2h 36min - {props.gender}</p>
