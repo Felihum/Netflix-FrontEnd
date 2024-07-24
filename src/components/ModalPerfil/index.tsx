@@ -16,7 +16,7 @@ export function ModalPerfil(props: ModalPerfilProps){
     return(
         <div className="background-modal" onClick={() => props.setModalPerfilOpen(false)}>
             <div className="container-modal-perfil">
-                <div className="btn-menu">
+                <div className="btn-menu" onClick={() => navigate("/account")}>
                     Conta
                 </div>
                 <div className="btn-menu" onClick={() => navigate("/change-profile")}>

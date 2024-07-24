@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { TitleCard } from "../../components/TitleCard";
 import "./index.css";
 import Slider from 'react-slick';
@@ -8,8 +7,6 @@ import { useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
-import { ModalPerfil } from "../../components/ModalPerfil";
-import { GetCurrentUsuario } from "../../controllers/UsuariosController";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
@@ -88,7 +85,7 @@ export function Home(){
                     <Header />
                 </div>
                 <div className="painel-principal">
-                    <img src={imageLogo}/>
+                    <img src={imageLogo} alt="logo"/>
                 </div>
                 <div className="titleSection">
                     <div className="containerSlider">

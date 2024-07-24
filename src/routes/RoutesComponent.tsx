@@ -8,6 +8,7 @@ import { Movies } from '../pages/Movies';
 import { Series } from '../pages/Series';
 import { Perfis } from '../pages/Perfis';
 import { AddProfile } from '../pages/AddProfile';
+import { Account } from '../pages/Account';
 
 export function RoutesComponent(){
   return(
@@ -21,6 +22,7 @@ export function RoutesComponent(){
         <Route path='series' element={<Series />} />
         <Route path='change-profile' element={<Perfis />} />
         <Route path='add-profile' element={<AddProfile />} />
+        <Route path='account' element={<Account />} />
       </Routes>
     </BrowserRouter>
   );
