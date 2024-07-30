@@ -9,6 +9,7 @@ import { Series } from '../pages/Series';
 import { Perfis } from '../pages/Perfis';
 import { AddProfile } from '../pages/AddProfile';
 import { Account } from '../pages/Account';
+import { EditAccount } from '../pages/EditAccount';
 
 export function RoutesComponent(){
   return(
@@ -23,6 +24,7 @@ export function RoutesComponent(){
         <Route path='change-profile' element={<Perfis />} />
         <Route path='add-profile' element={<AddProfile />} />
         <Route path='account' element={<Account />} />
+        <Route path='edit-data' element={<EditAccount />} />
       </Routes>
     </BrowserRouter>
   );

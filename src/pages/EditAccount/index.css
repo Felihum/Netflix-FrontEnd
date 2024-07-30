@@ -1,0 +1,132 @@
+.container-edit-data{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-section-edit-data{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(26, 9, 1);
+}
+
+.form{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.inputBox{
+    width: 43%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    gap: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.input-edit-data{
+    background-color: rgb(182, 182, 182);
+    width: 100%;
+}
+
+.input-edit-data input{
+    color: rgb(0, 0, 0);
+}
+
+.input-edit-data label{
+    color: rgb(0, 0, 0);
+}
+
+.btnBox{
+    width: 43%;
+}
+
+.container-btn-save{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container-btn-save button{
+    width: 120px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+
+.container-btn-save button:hover{
+    background-color: rgb(133, 6, 6);
+}
+
+.confirm-modal-background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 20;
+}
+
+.confirm-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(214, 208, 208);
+    width: 35rem;
+    height: 10rem;
+    color: rgb(0, 0, 0);
+    padding: 30px;
+}
+
+.container-btn-save-confirm button{
+    width: 120px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+
+.container-btn-save-confirm button:hover{
+    background-color: rgb(133, 6, 6);
+}
+
+.container-btn-cancel-confirm button{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(206, 195, 195);
+    color: rgb(0, 0, 0);
+}
+
+.container-btn-cancel-confirm button:hover{
+    background-color: rgb(206, 195, 195);
+}
+
+.btn-modal-section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.title-confirm{
+    color: black;
+}

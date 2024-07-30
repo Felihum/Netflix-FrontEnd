@@ -1,25 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import { LeftBarAccount } from "../../components/LeftBarAccount";
 
 export function Account(){
     const navigate = useNavigate();
 
     return(
         <div className="container-account">
-            <div className="left-bar">
-                <div className="btn-left-bar" onClick={() => navigate("/")}>
-                    {"<-"}
-                </div>
-                <div className="btn-left-bar">
-                    Alterar dados
-                </div>
-                <div className="btn-left-bar">
-                    Assinaturas
-                </div>
-                <div className="btn-left-bar">
-                    Deletar conta
-                </div>
-            </div>
+            <LeftBarAccount />
             <div className="container-info-panel">
                 <div className="info-panel">
                     <p>CPF:</p>
