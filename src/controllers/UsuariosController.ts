@@ -78,3 +78,23 @@ export async function GetCurrentUsuario(){
 
     return null;
 }
+
+export async function EditUsuario(id: number, cpf:string, email: string, password: string, birthday: string, idSubscription: number){
+    try{
+        const data = {
+            cpf: cpf,
+            email: email,
+            password: password,
+            birthday: new Date(birthday).toISOString(),
+            role: "comum",
+            idSubscription: idSubscription
+        };
+
+        const response: AxiosResponse = await api.put(`/usuarios/${id}`, data);
+
+        return response.status;
+    }
+    catch(error){
+        throw error;
+    }
+}

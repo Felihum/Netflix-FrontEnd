@@ -13,21 +13,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(26, 9, 1);
+    background-color: #494646;
 }
 
 .form{
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    background-color: #242222;
+    border-radius: 15px;
+    box-shadow: 0.1px 0.1px 20px rgba(0, 0, 0, 0.445) ;
 }
 
 .inputBox{
-    width: 43%;
+    width: 53%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +54,7 @@
 }
 
 .btnBox{
-    width: 43%;
+    width: 53%;
 }
 
 .container-btn-save{

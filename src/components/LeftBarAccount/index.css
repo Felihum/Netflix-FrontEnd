@@ -1,7 +1,7 @@
 .left-bar{
-    width: 15%;
+    width: 12%;
     height: 100%;
-    background-color: rgb(85, 32, 8);
+    background-color: #242222;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,5 +22,5 @@
 
 .btn-left-bar:hover{
     color: white;
-    background-color: rgb(61, 23, 5);
+    background-color: #E50915;
 }

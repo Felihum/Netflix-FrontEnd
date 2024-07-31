@@ -3,10 +3,54 @@ import { LeftBarAccount } from "../../components/LeftBarAccount";
 import "./index.css";
 import { MdAccountBox, MdEmail, MdDateRange } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { EditUsuario, ExecuteLogin, GetCurrentUsuario } from "../../controllers/UsuariosController";
+import { useNavigate } from "react-router-dom";
 
 export function EditAccount(){
+    const [id, setId] = useState<number>(0);
+    const [cpf, setCpf] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [birthday, setBirthday] = useState<any>(null);
+    const [idSubscription, setIdSubscription] = useState<number>(0);
+
+    const navigate = useNavigate();
     const [confirmModal, setConfirmModal] = useState(false);
+
+    async function fetchData(){
+        try{
+            const user = await GetCurrentUsuario();
+
+            if(user != null){
+                setId(user.id);
+                setCpf(user.cpf);
+                setEmail(user.email);
+                setPassword(user.password);
+                setBirthday(user.birthday);
+                setIdSubscription(user.idSubscription);
+            }
+        }
+        catch(error){
+            throw error;
+        }
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    async function HandleEdit(){
+        try{
+            await EditUsuario(id, cpf, email, password, birthday, idSubscription);
+            await ExecuteLogin(email, password);
+            navigate("/");
+        }
+        catch(error){
+            throw error;
+        }
+        
+    }
 
     return(
         <div className="container-edit-data">
@@ -19,7 +63,7 @@ export function EditAccount(){
                             <p>Ao clicar em salvar você irá alterar as informações da sua conta.</p>
                             <div className="btn-modal-section">
                                 <div className="container-btn-save-confirm">
-                                    <Button onClick={() => setConfirmModal(true)} color="primary">Save</Button>
+                                    <Button onClick={() => HandleEdit()} color="primary">Save</Button>
                                 </div>
                                 <div className="container-btn-cancel-confirm">
                                     <Button onClick={() => setConfirmModal(false)} color="primary">Cancelar</Button>
@@ -36,19 +80,19 @@ export function EditAccount(){
                 <div className="form">
                     <div className="inputBox">
                         <MdAccountBox />
-                        <TextField id="outlined-basic" className="input-edit-data" value="177.228.277-48" variant="filled" />
+                        <TextField id="outlined-basic" className="input-edit-data" value={cpf} onChange={(event) => setCpf(event.target.value)} variant="filled" />
                     </div>
                     <div className="inputBox">
                         <MdEmail />
-                        <TextField id="outlined-basic" className="input-edit-data" value="felipemedeirosinfo@gmail.com" variant="filled" />
+                        <TextField id="outlined-basic" className="input-edit-data" value={email} onChange={(event) => setEmail(event.target.value)} variant="filled" />
                     </div>
                     <div className="inputBox">
                         <RiLockPasswordFill />
-                        <TextField id="outlined-basic" className="input-edit-data" type="password" value="123" variant="filled" />
+                        <TextField id="outlined-basic" className="input-edit-data" type="password" value={password} onChange={(event) => setPassword(event.target.value)} variant="filled" />
                     </div>
                     <div className="inputBox">
                         <MdDateRange />
-                        <TextField id="outlined-basic" type="date" className="input-edit-data" value="24-04-2005" variant="filled" />
+                        <TextField id="outlined-basic" type="date" className="input-edit-data" value={birthday} onChange={(event) => setBirthday(event.target.value)} variant="filled" />
                     </div>
                     <div className="btnBox">
                         <div className="container-btn-save">
