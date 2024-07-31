@@ -13,7 +13,7 @@ export function LeftBarAccount(){
             <div className="btn-left-bar" onClick={() => navigate("/edit-data")}>
                 Alterar dados
             </div>
-            <div className="btn-left-bar">
+            <div className="btn-left-bar" onClick={() => navigate("/edit-subscription")}>
                 Assinaturas
             </div>
             <div className="btn-left-bar">

@@ -6,6 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import { EditUsuario, ExecuteLogin, GetCurrentUsuario } from "../../controllers/UsuariosController";
 import { useNavigate } from "react-router-dom";
+import { ConfirmModal } from "../../components/ConfirmModal";
 
 export function EditAccount(){
     const [id, setId] = useState<number>(0);
@@ -57,21 +58,7 @@ export function EditAccount(){
             <LeftBarAccount />
             {
                 confirmModal ? 
-                    <div className="confirm-modal-background">
-                        <div className="confirm-modal">
-                            <h1 className="title-confirm">Salvar alterações?</h1>
-                            <p>Ao clicar em salvar você irá alterar as informações da sua conta.</p>
-                            <div className="btn-modal-section">
-                                <div className="container-btn-save-confirm">
-                                    <Button onClick={() => HandleEdit()} color="primary">Save</Button>
-                                </div>
-                                <div className="container-btn-cancel-confirm">
-                                    <Button onClick={() => setConfirmModal(false)} color="primary">Cancelar</Button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    <ConfirmModal onClick={HandleEdit} setConfirmModal={setConfirmModal} />
                     :
                     null
             }

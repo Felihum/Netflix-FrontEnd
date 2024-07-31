@@ -10,6 +10,7 @@ import { Perfis } from '../pages/Perfis';
 import { AddProfile } from '../pages/AddProfile';
 import { Account } from '../pages/Account';
 import { EditAccount } from '../pages/EditAccount';
+import { EditSubscription } from '../pages/EditSubscription';
 
 export function RoutesComponent(){
   return(
@@ -25,6 +26,7 @@ export function RoutesComponent(){
         <Route path='add-profile' element={<AddProfile />} />
         <Route path='account' element={<Account />} />
         <Route path='edit-data' element={<EditAccount />} />
+        <Route path='edit-subscription' element={<EditSubscription />} />
       </Routes>
     </BrowserRouter>
   );

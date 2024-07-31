@@ -1,0 +1,25 @@
+.container-current-subscription{
+    width: 20rem;
+    background-color: rgb(73, 71, 71);
+    padding: 20px;
+    color: white;
+    box-shadow: 0.1px 0.1px 20px rgba(0, 0, 0, 0.445);
+    border-radius: 5px;
+}
+
+.container-subscription{
+    transition: 0.1s;
+    width: 20rem;
+    background-color: rgb(121, 5, 5);
+    padding: 20px;
+    color: white;
+    box-shadow: 0.1px 0.1px 20px rgba(0, 0, 0, 0.445);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container-subscription:hover{
+    transition: 0.1s;
+    background-color: rgb(133, 10, 10);
+    box-shadow: 0.1px 0.1px 20px rgb(107, 6, 6);
+}
