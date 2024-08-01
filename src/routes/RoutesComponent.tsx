@@ -11,6 +11,7 @@ import { AddProfile } from '../pages/AddProfile';
 import { Account } from '../pages/Account';
 import { EditAccount } from '../pages/EditAccount';
 import { EditSubscription } from '../pages/EditSubscription';
+import { DeleteAccount } from '../pages/DeleteAccount';
 
 export function RoutesComponent(){
   return(
@@ -27,6 +28,7 @@ export function RoutesComponent(){
         <Route path='account' element={<Account />} />
         <Route path='edit-data' element={<EditAccount />} />
         <Route path='edit-subscription' element={<EditSubscription />} />
+        <Route path='delete-account' element={<DeleteAccount />} />
       </Routes>
     </BrowserRouter>
   );

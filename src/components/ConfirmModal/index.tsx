@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import "./index.css";
 
 type ConfirmModalProps = {
     onClick: () => void,

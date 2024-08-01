@@ -98,3 +98,14 @@ export async function EditUsuario(id: number, cpf:string, email: string, passwor
         throw error;
     }
 }
+
+export async function DeleteUsuario(id: number){
+    try{
+        const response: AxiosResponse = await api.delete(`/usuarios/${id}`);
+
+        return response.status;
+    }
+    catch(error){
+        throw error;
+    }
+}
