@@ -11,6 +11,16 @@ export type usuarioType = {
     idSubscription?: number
 }
 
+export type usuarioResponseType = {
+    id: number,
+    cpf: string,
+    email: string,
+    password: string,
+    birthday: string,
+    role: string,
+    idSubscription: number
+}
+
 export async function GetAllUsuarios(){
     try{
         const response: AxiosResponse = await api.get("/usuarios");

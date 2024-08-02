@@ -74,7 +74,7 @@ export function EditSubscription(){
             <div className="container-subscription-section">
                 <div className="subscription-section">
                     <div className="current-sub-info">
-                        <h1>Alterar assinatura</h1>
+                        <h1>Gerenciar assinatura</h1>
                         <p>Assinatura atual: Premium + (R$ 33,23/mês)</p>
                     </div>
                     <div className="sub-list-section">

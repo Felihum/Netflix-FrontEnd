@@ -4,7 +4,7 @@ import "./index.css";
 import { MdAccountBox, MdEmail, MdDateRange } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useEffect, useState } from "react";
-import { EditUsuario, ExecuteLogin, GetCurrentUsuario } from "../../controllers/UsuariosController";
+import { EditUsuario, ExecuteLogin, GetCurrentUsuario, usuarioResponseType } from "../../controllers/UsuariosController";
 import { useNavigate } from "react-router-dom";
 import { ConfirmModal } from "../../components/ConfirmModal";
 
@@ -15,21 +15,24 @@ export function EditAccount(){
     const [password, setPassword] = useState<string>("");
     const [birthday, setBirthday] = useState<any>(null);
     const [idSubscription, setIdSubscription] = useState<number>(0);
+    const [role, setRole] = useState<string>("comum");
+    const [currentUser, setCurrentUser] = useState<usuarioResponseType>({id, cpf, email, password, birthday, role, idSubscription});
 
     const navigate = useNavigate();
     const [confirmModal, setConfirmModal] = useState(false);
 
     async function fetchData(){
         try{
-            const user = await GetCurrentUsuario();
+            const user: usuarioResponseType = await GetCurrentUsuario();
 
-            if(user != null){
+            if(currentUser != null){
                 setId(user.id);
                 setCpf(user.cpf);
                 setEmail(user.email);
                 setPassword(user.password);
                 setBirthday(user.birthday);
                 setIdSubscription(user.idSubscription);
+                setCurrentUser(user);
             }
         }
         catch(error){
@@ -65,6 +68,7 @@ export function EditAccount(){
             
             <div className="form-section-edit-data">
                 <div className="form">
+                    <h1>Gerenciar dados da conta</h1>
                     <div className="inputBox">
                         <MdAccountBox />
                         <TextField id="outlined-basic" className="input-edit-data" value={cpf} onChange={(event) => setCpf(event.target.value)} variant="filled" />
@@ -82,9 +86,17 @@ export function EditAccount(){
                         <TextField id="outlined-basic" type="date" className="input-edit-data" value={birthday} onChange={(event) => setBirthday(event.target.value)} variant="filled" />
                     </div>
                     <div className="btnBox">
-                        <div className="container-btn-save">
-                            <Button onClick={() => setConfirmModal(true)} color="primary">Save</Button>
-                        </div>
+                        {
+                            cpf !== currentUser.cpf || email !== currentUser.email || password !== currentUser.password || birthday !== currentUser.birthday
+                            ?
+                                <div className="container-btn-save">
+                                    <Button onClick={() => setConfirmModal(true)} color="primary">Save</Button>
+                                </div>
+                            :
+                                <div className="container-btn-save-disabled">
+                                    <Button color="primary">Save</Button>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -6,17 +6,30 @@ import reportWebVitals from './reportWebVitals';
 import { RoutesComponent } from './routes/RoutesComponent';
 import { ThemeProvider } from '@mui/material';
 import { LightTheme } from './themes/Light';
+import { createContext } from 'react';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 ); 
 
+export const AccountContext = createContext<[string, React.Dispatch<React.SetStateAction<string>>]>(["/edit-data", () => {}]);
+
+const App = () => {
+  const [currentRoute, setCurrentRoute] = useState<string>("/edit-data");
+
+  return (
+    <AccountContext.Provider value={[currentRoute, setCurrentRoute]}>
+      <ThemeProvider theme={LightTheme}>
+        <React.StrictMode>
+          <RoutesComponent />
+        </React.StrictMode>
+      </ThemeProvider>
+    </AccountContext.Provider>
+  );
+};
+
 root.render(
-    <ThemeProvider theme={LightTheme}>
-      <React.StrictMode>
-        <RoutesComponent />
-      </React.StrictMode>
-    </ThemeProvider>
+  <App />
 );
 
 // If you want to start measuring performance in your app, pass a function

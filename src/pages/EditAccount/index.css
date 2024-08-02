@@ -56,3 +56,43 @@
 .btnBox{
     width: 53%;
 }
+
+.container-btn-save{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container-btn-save button{
+    width: 120px;
+    height: 40px;
+    background-color: red;
+    color: white;
+}
+
+.container-btn-save button:hover{
+    background-color: rgb(133, 6, 6);
+}
+
+.container-btn-save-disabled{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 0.4;
+}
+
+.container-btn-save-disabled button{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(73, 71, 71);
+    color: white;
+    cursor: default;
+}
+
+.container-btn-save-disabled button:hover{
+    background-color: rgb(73, 71, 71);
+}
