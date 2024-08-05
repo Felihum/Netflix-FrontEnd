@@ -17,12 +17,15 @@ export function ModalPerfil(props: ModalPerfilProps){
         <div className="background-modal" onClick={() => props.setModalPerfilOpen(false)}>
             <div className="container-modal-perfil">
                 <div className="btn-menu" onClick={() => navigate("/edit-data")}>
+                    Configurações
+                </div>
+                <div className="btn-menu" onClick={() => navigate("/edit-data")}>
                     Conta
                 </div>
                 <div className="btn-menu" onClick={() => navigate("/change-profile")}>
                     Trocar Perfil
                 </div>
-                <div className="btn-menu">
+                <div className="btn-menu" onClick={() => navigate("/edit-profile")}>
                     Editar Perfis
                 </div>
                 <div className="btn-menu" onClick={() => LogOut()}>

@@ -1,0 +1,4 @@
+.profilesSectionContainer{
+    display: flex;
+    flex-direction: row;
+}

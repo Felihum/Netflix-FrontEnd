@@ -35,9 +35,8 @@ export function TitlePage(props: TitlePageProps){
     }
 
     return(
-        <div style={style}>
-            
-            <div className="content-section-title-page">
+        <div className="container-geral-title-page">
+            <div style={style}>
                 <div className="btn-voltar">
                     <button onClick={() => props.setIsTitleOpen(false)}><FaChevronLeft /></button>
                 </div>
@@ -58,11 +57,26 @@ export function TitlePage(props: TitlePageProps){
                     </div>
                 </div>
             </div>
-            
             <div className="footer">
-                
+                <div className="detailsSection">
+                    <div className="descriptionDetailed">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque minima repellat sapiente temporibus. Labore, suscipit. Error quasi voluptatem, expedita corrupti cupiditate fugiat excepturi similique? Iusto error ad ab voluptates expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quia ducimus nam aliquam placeat quasi. Ipsum cumque, laboriosam ipsam distinctio quo doloribus excepturi, ullam velit modi veritatis dolorum, nesciunt nemo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non unde optio, natus id reiciendis, iusto architecto ab explicabo illo vero in porro dolorum soluta a placeat earum. Facilis, aut eaque.</p>
+                    </div>
+                    <div className="infoDetailed">
+                        <div className="infoContainer">
+                            <p>Duração: 2 h 36 min</p>
+                            <p>Classificação: 12</p>
+                            <p>Avaliação: 5</p>
+                        </div>
+                        <div className="infoContainer">
+                            <p>Gênero: Ficção/Ação</p>
+                            <p>Data de Lançamento: 19/08/2005</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        
     );
     
 }

@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetAllMovies, GetAllSeries, GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitleCard } from "../../components/TitleCard";
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
 import "./index.css";
+import { ProfileContext } from "../..";
 
 export function Series(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
     //const [filteredTitles, setFilteredTitles] = useState<titleResponseType[]>([]);
+    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     const [title, setTitle] = useState<string>("");
     const [releaseYear, setReleaseYear] = useState(0);
@@ -58,7 +60,7 @@ export function Series(){
         return(
             <div className="container-geral-movies">
                 <div className="header-section">
-                    <Header />
+                    <Header profile={currentProfile} />
                 </div>
                 <div className="title-container">
                     <h1>SERIES</h1>

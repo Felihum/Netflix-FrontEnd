@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetAllMovies, GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitleCard } from "../../components/TitleCard";
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
 import "./index.css";
+import { ProfileContext } from "../..";
 
 export function Movies(){
 
@@ -20,6 +21,7 @@ export function Movies(){
     const [gender, setGender] = useState<string>("");
     const [duration, setDuration] = useState<number>(0);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
+    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     async function fetchTitles(){
         try{
@@ -58,7 +60,7 @@ export function Movies(){
         return(
             <div className="container-geral-movies">
                 <div className="header-section">
-                    <Header />
+                    <Header profile={currentProfile} />
                 </div>
                 <div className="title-container">
                     <h1>FILMES</h1>

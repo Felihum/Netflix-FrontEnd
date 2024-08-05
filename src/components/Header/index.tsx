@@ -7,8 +7,13 @@ import { IoIosSearch } from "react-icons/io";
 import { MdLocalMovies } from "react-icons/md";
 import { PiTelevision } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { profileResponseType } from "../../controllers/ProfilesController";
 
-export function Header(){
+type HeaderProps = {
+    profile: profileResponseType
+}
+
+export function Header(props: HeaderProps){
     const [modalPerfilOpen, setModalPerfilOpen] = useState<boolean>(false);
     const navigate = useNavigate();
 
@@ -22,7 +27,7 @@ export function Header(){
                     <div onClick={() => navigate("/series")}><PiTelevision className="icon"/><p>Séries</p></div>
                 </div>
                 <div className="MyAccount-btn" onClick={() => setModalPerfilOpen(!modalPerfilOpen)}>
-                    <MdAccountCircle />
+                    <img src={props.profile.image} alt="" />
                 </div>
             </div>
             {modalPerfilOpen ? <div className="div-modal-perfil"><ModalPerfil setModalPerfilOpen={setModalPerfilOpen} /></div> : null}  

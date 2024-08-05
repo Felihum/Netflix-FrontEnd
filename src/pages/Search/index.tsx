@@ -2,10 +2,11 @@ import { InputAdornment, TextField } from "@mui/material";
 import { Header } from "../../components/Header";
 import "./index.css";
 import { IoIosSearch } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitleCard } from "../../components/TitleCard";
 import { TitlePage } from "../../components/TitlePage";
+import { ProfileContext } from "../..";
 
 export function Search(){
     const [titles, setTitles] = useState<titleResponseType[]>([]);
@@ -21,6 +22,7 @@ export function Search(){
     const [gender, setGender] = useState<string>("");
     const [duration, setDuration] = useState<number>(0);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
+    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     async function fetchTitles(){
         try{
@@ -76,7 +78,7 @@ export function Search(){
         return(
             <div className="container-geral-search">
                 <div className="header-section">
-                    <Header />
+                    <Header profile={currentProfile} />
                 </div>
                 <div className="input-search-container">
                     <TextField 

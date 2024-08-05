@@ -3,10 +3,11 @@ import "./index.css";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
+import { ProfileContext } from "../..";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
@@ -14,6 +15,7 @@ export function Home(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
+    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     const [title, setTitle] = useState<string>("");
     const [releaseYear, setReleaseYear] = useState(0);
@@ -82,7 +84,7 @@ export function Home(){
         return(
             <div className="container-geral">
                 <div className="header-section">
-                    <Header />
+                    <Header profile={currentProfile} />
                 </div>
                 <div className="painel-principal">
                     <img src={imageLogo} alt="logo"/>

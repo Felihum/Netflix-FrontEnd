@@ -42,11 +42,20 @@
 
 .MyAccount-btn{
     color: white;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     cursor: pointer;
+    border-radius: 360px;
+}
+
+.MyAccount-btn img{
+    width: 100%;
+    height: 100%;
+    border-radius: 360px;
 }
 
 .btn-section button{

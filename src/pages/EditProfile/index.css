@@ -1,14 +1,14 @@
-.container-perfis{
+.edit-profile-container{
     width: 100%;
     height: 100%;
+    gap: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 70px;
 }
 
-.title-perfis{
+.editProfileLabel{
     width: 100%;
     height: 10%;
     display: flex;
@@ -17,35 +17,15 @@
     animation: 0.5s ease-out 0s 1 initOpacity;
 }
 
-.perfil-cards-section{
+.profilesSectionContainer{
     width: 100%;
     height: 60%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    gap: 70px;
     animation: 0.5s ease-out 0s 1 slideFromBottom;
-}
-
-.button-container-add{
-    transition: 0.3s;
-    width: 250px;
-    height: 250px;
-    border-radius: 360px;
-    border: 3px solid transparent;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(134, 5, 5);
-    font-size: 40px;
-    font-weight: 5;
-    color: rgb(0, 0, 0);
-}
-
-.button-container-add:hover{
-    color: rgb(255, 255, 255);
-    border: 3px solid white;
 }
 
 @keyframes slideFromBottom{
