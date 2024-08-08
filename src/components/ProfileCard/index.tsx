@@ -3,7 +3,7 @@ import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { MdEdit } from "react-icons/md";
 import { useContext } from "react";
-import { ProfileContext } from "../..";
+import { ProfileContext, SelectedProfileContext } from "../..";
 
 type ProfileCardProps = {
     id: number,
@@ -16,11 +16,12 @@ type ProfileCardProps = {
 export function ProfileCard(props: ProfileCardProps){
     const navigate = useNavigate();
     const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
+    const selectedProfile = useContext(SelectedProfileContext);
 
     async function HandleClick(){
         try{
             const profile = await GetProfileById(props.id);
-
+            selectedProfile?.selectProfile();
             await setCurrentProfile(profile);
 
             navigate("/");

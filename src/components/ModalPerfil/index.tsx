@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { AuthenticationContext, SelectedProfileContext } from "../..";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
@@ -7,9 +9,13 @@ type ModalPerfilProps = {
 
 export function ModalPerfil(props: ModalPerfilProps){
     const navigate = useNavigate();
+    const authContext = useContext(AuthenticationContext);
+    const selectedProfile = useContext(SelectedProfileContext);
 
     function LogOut(){
         localStorage.removeItem('token');
+        authContext?.logout();
+        selectedProfile?.setOutProfile();
         navigate("/login");
     }
 

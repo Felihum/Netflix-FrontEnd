@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from "axios";
+import { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from "axios";
 import { api } from "../apiBaseURL";
 import jwtDecode from 'jwt-decode';
 

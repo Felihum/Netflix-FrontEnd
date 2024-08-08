@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
-import { ProfileContext } from "../..";
+import { ProfileContext, SelectedProfileContext } from "../..";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
