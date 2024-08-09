@@ -8,6 +8,7 @@ type TitlePageProps = {
     title: string,
     releaseYear: number,
     description?: string,
+    detailedDescription: string,
     duration: number,
     gender: string,
     type: string,
@@ -48,7 +49,7 @@ export function TitlePage(props: TitlePageProps){
                         <p>{props.releaseYear} - 2h 36min - {props.gender}</p>
                     </div>
                     <div className="descriptionText">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit quas laudantium consequuntur quaerat odio voluptatibus </p>
+                        <p>{props.description}</p>
                     </div>
 
                     <div className="btn-play-section">
@@ -60,16 +61,16 @@ export function TitlePage(props: TitlePageProps){
             <div className="footer">
                 <div className="detailsSection">
                     <div className="descriptionDetailed">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque minima repellat sapiente temporibus. Labore, suscipit. Error quasi voluptatem, expedita corrupti cupiditate fugiat excepturi similique? Iusto error ad ab voluptates expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quia ducimus nam aliquam placeat quasi. Ipsum cumque, laboriosam ipsam distinctio quo doloribus excepturi, ullam velit modi veritatis dolorum, nesciunt nemo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Non unde optio, natus id reiciendis, iusto architecto ab explicabo illo vero in porro dolorum soluta a placeat earum. Facilis, aut eaque.</p>
+                        <p>{props.detailedDescription}</p>
                     </div>
                     <div className="infoDetailed">
                         <div className="infoContainer">
-                            <p>Duração: 2 h 36 min</p>
+                            <p>Duração: {props.duration}</p>
                             <p>Classificação: 12</p>
                             <p>Avaliação: 5</p>
                         </div>
                         <div className="infoContainer">
-                            <p>Gênero: Ficção/Ação</p>
+                            <p>Gênero: {props.gender}</p>
                             <p>Data de Lançamento: 19/08/2005</p>
                         </div>
                     </div>

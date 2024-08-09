@@ -14,6 +14,7 @@ export type titleResponseType = {
     image: string,
     logo: string,
     description?: string,
+    detailedDescription: string,
     type: string,
     ageRating: number,
     seasons?: any
