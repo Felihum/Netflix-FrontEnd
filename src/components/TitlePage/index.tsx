@@ -3,24 +3,27 @@ import "./index.css"
 import CSS from "csstype";
 import { FaChevronLeft } from "react-icons/fa";
 import { Header } from "../Header";
+import { titleResponseType } from "../../controllers/TitlesController";
 
 type TitlePageProps = {
-    title: string,
+    /*title: string,
     releaseYear: number,
     description?: string,
     detailedDescription: string,
-    duration: number,
+    duration: string,
     gender: string,
     type: string,
     seasons?: any,
     image: string,
-    logo: string,
+    logo: string,*/
+    title: titleResponseType,
     setIsTitleOpen: (isTitleOpen: boolean) => void
+    
 }
 
 export function TitlePage(props: TitlePageProps){
     const style: CSS.Properties = {
-        backgroundImage: `url(${props.image})`,
+        backgroundImage: `url(${props.title.image})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right center",
@@ -43,13 +46,13 @@ export function TitlePage(props: TitlePageProps){
                 </div>
                 <div className="info-section">
                     <div className="imgLogo">
-                        <img src={props.logo} alt="" />
+                        <img src={props.title.logo} alt="" />
                     </div>
                     <div className="releaseYearText">
-                        <p>{props.releaseYear} - 2h 36min - {props.gender}</p>
+                        <p>{props.title.releaseYear} - {props.title.duration} - {props.title.gender}</p>
                     </div>
                     <div className="descriptionText">
-                        <p>{props.description}</p>
+                        <p>{props.title.description}</p>
                     </div>
 
                     <div className="btn-play-section">
@@ -61,17 +64,17 @@ export function TitlePage(props: TitlePageProps){
             <div className="footer">
                 <div className="detailsSection">
                     <div className="descriptionDetailed">
-                        <p>{props.detailedDescription}</p>
+                        <p>{props.title.detailedDescription}</p>
                     </div>
                     <div className="infoDetailed">
                         <div className="infoContainer">
-                            <p>Duração: {props.duration}</p>
-                            <p>Classificação: 12</p>
+                            <p>Duração: {props.title.duration}</p>
+                            <p>Classificação: {props.title.ageRating}</p>
                             <p>Avaliação: 5</p>
                         </div>
                         <div className="infoContainer">
-                            <p>Gênero: {props.gender}</p>
-                            <p>Data de Lançamento: 19/08/2005</p>
+                            <p>Gênero: {props.title.gender}</p>
+                            <p>Data de Lançamento: {props.title.releaseYear}</p>
                         </div>
                     </div>
                 </div>

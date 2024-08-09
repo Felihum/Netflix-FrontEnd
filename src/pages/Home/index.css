@@ -26,7 +26,7 @@
     justify-content: flex-start;
     gap: 45px;
     padding-left: 45px;
-    animation: 0.3s ease-out 0s 1 slideFromBottom;
+    animation: 1s ease-out 0s 1 slideFromBottom;
 }
 
 .containerTitles{ 

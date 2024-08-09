@@ -3,7 +3,7 @@
     width: 21.25rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     color: white;
     cursor: pointer;
@@ -22,6 +22,18 @@
     border: solid 2px #ffffff;
 }
 
+/*.container-img img:hover{
+    animation: 3s ease-out 0s 1 getInImg;
+}*/
+
+@keyframes getInImg{
+    0% {
+        scale: 1;
+    }
+    100%{
+        scale: 1.05;
+    }
+}
 
 @media only screen and (max-width: 1367px){
     .container-img{
