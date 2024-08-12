@@ -17,12 +17,24 @@ export type titleResponseType = {
     type: string,
     ageRating: number,
     duration: string,
+    trailer: string
     seasons?: any
 }
 
 export async function GetAllTitles(){
     try{
         const response: AxiosResponse = await api.get("/titles");
+
+        return response.data;
+    }
+    catch(error){
+        throw error;
+    }
+}
+
+export async function GetTitlesById(id: number){
+    try{
+        const response: AxiosResponse = await api.get(`/titles/${id}`)
 
         return response.data;
     }

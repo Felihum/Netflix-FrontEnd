@@ -47,45 +47,34 @@ export function Search(){
         fetchTitles();
     }, []);
 
-    if(isTitleOpen){
-        return(
-            <div className="container-geral">
-                {
-                    title && <TitlePage setIsTitleOpen={setIsTitleOpen} title={title} />
-                }
+    return(
+        <div className="container-geral-search">
+            <div className="header-section">
+                <Header profile={currentProfile} />
             </div>
-        );
-    }
-    else{
-        return(
-            <div className="container-geral-search">
-                <div className="header-section">
-                    <Header profile={currentProfile} />
-                </div>
-                <div className="input-search-container">
-                    <TextField 
-                        id="standard-basic" 
-                        className="input-search" 
-                        label="Search" 
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <IoIosSearch className="icon" />
-                                </InputAdornment>
-                            ),
-                        }} 
-                        variant="filled" 
-                        onChange={(event) => FilterTitles(event.target.value)}
-                    />
-                </div>
-                <div className="grid-container">
-                    <div className="grid-titles">
-                        {filteredTitles.map((title) => (
-                            <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                        ))}
-                    </div>
+            <div className="input-search-container">
+                <TextField 
+                    id="standard-basic" 
+                    className="input-search" 
+                    label="Search" 
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <IoIosSearch className="icon" />
+                            </InputAdornment>
+                        ),
+                    }} 
+                    variant="filled" 
+                    onChange={(event) => FilterTitles(event.target.value)}
+                />
+            </div>
+            <div className="grid-container">
+                <div className="grid-titles">
+                    {filteredTitles.map((title) => (
+                        <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                    ))}
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }

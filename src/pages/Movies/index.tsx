@@ -29,31 +29,21 @@ export function Movies(){
         fetchTitles();
     }, []);
 
-    if(isTitleOpen){
-        return(
-            <div className="container-geral">
-                {
-                    title && <TitlePage setIsTitleOpen={setIsTitleOpen} title={title} />
-                }
+    return(
+        <div className="container-geral-movies">
+            <div className="header-section">
+                <Header profile={currentProfile} />
             </div>
-        );
-    } else{
-        return(
-            <div className="container-geral-movies">
-                <div className="header-section">
-                    <Header profile={currentProfile} />
-                </div>
-                <div className="title-container">
-                    <h1>FILMES</h1>
-                </div>
-                <div className="grid-container">
-                    <div className="grid-titles">
-                        {titles.map((title) => (
-                            <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                        ))}
-                    </div>
+            <div className="title-container">
+                <h1>FILMES</h1>
+            </div>
+            <div className="grid-container">
+                <div className="grid-titles">
+                    {titles.map((title) => (
+                        <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                    ))}
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }

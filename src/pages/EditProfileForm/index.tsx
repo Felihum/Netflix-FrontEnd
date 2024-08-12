@@ -26,7 +26,6 @@ export function EditProfileForm(){
 
     async function HandleSave(){
         try{
-            let typeString: string = "infantil";
             const currentUser = await GetCurrentUsuario();
                 
             const editedProfile: profileDTOType = {

@@ -5,16 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useContext, useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
-import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
-import { ProfileContext, SelectedProfileContext } from "../..";
+import { ProfileContext } from "../..";
 
 const imageLogo = require("../../images/logotipo-da-netflix.jpg");
 
 export function Home(){
 
     const [titles, setTitles] = useState<titleResponseType[]>([]);
-    const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
     const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     const [title, setTitle] = useState<titleResponseType>();
@@ -53,87 +51,77 @@ export function Home(){
         return newArray;
     }
 
-    if(isTitleOpen){
-        return(
-            <div className="container-geral">
-                {
-                    title && <TitlePage setIsTitleOpen={setIsTitleOpen} title={title} />
-                }
+    return(
+        <div className="container-geral">
+            <div className="header-section">
+                <Header profile={currentProfile} />
             </div>
-        );
-    } else{
-        return(
-            <div className="container-geral">
-                <div className="header-section">
-                    <Header profile={currentProfile} />
+            <div className="painel-principal">
+                <img src={imageLogo} alt="logo"/>
+            </div>
+            <div className="titleSection">
+                <div className="containerSlider">
+                    <h3 className="title-label">Principais</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
-                <div className="painel-principal">
-                    <img src={imageLogo} alt="logo"/>
+                
+                <div className="containerSlider">
+                    <h3 className="title-label">Recomendados para Você</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
+                    </div>
                 </div>
-                <div className="titleSection">
-                    <div className="containerSlider">
-                        <h3 className="title-label">Principais</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Ação</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
                     </div>
-                    
-                    <div className="containerSlider">
-                        <h3 className="title-label">Recomendados para Você</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Comédia</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
                     </div>
-                    <div className="containerSlider">
-                        <h3 className="title-label">Ação</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Ficção</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
                     </div>
-                    <div className="containerSlider">
-                        <h3 className="title-label">Comédia</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
-                    </div>
-                    <div className="containerSlider">
-                        <h3 className="title-label">Ficção</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
-                    </div>
-                    <div className="containerSlider">
-                        <h3 className="title-label">Drama</h3>
-                        <div className="containerTitles">
-                            <Slider {...settings}>
-                                {shuffleArray(titles).map((title) => (
-                                    <TitleCard key={title.id} title={title} onClick={setTitle} setIsTitleOpen={setIsTitleOpen} />
-                                ))}
-                            </Slider>
-                        </div>
+                </div>
+                <div className="containerSlider">
+                    <h3 className="title-label">Drama</h3>
+                    <div className="containerTitles">
+                        <Slider {...settings}>
+                            {shuffleArray(titles).map((title) => (
+                                <TitleCard key={title.id} title={title} setTitle={setTitle} />
+                            ))}
+                        </Slider>
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }

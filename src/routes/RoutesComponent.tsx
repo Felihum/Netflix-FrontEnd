@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import { Cadastro } from '../pages/Cadastro';
-import { TitlePage } from '../components/TitlePage';
+import { TitlePage } from '../pages/TitlePage';
 import { Search } from '../pages/Search';
 import { Movies } from '../pages/Movies';
 import { Series } from '../pages/Series';
@@ -38,6 +38,7 @@ export function RoutesComponent(){
         <Route path='delete-account' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <DeleteAccount /> : <Perfis />) : <Login />} />
         <Route path='edit-profile' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditProfile /> : <Perfis />) : <Login />} />
         <Route path='edit-profile-form/:idProfile' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditProfileForm /> : <Perfis />) : <Login />} />
+        <Route path='title-page/:idTitle' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <TitlePage /> : <Perfis />) : <Login />} />
       </Routes>
     </BrowserRouter>
   );
