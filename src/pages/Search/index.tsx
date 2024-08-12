@@ -5,8 +5,6 @@ import { IoIosSearch } from "react-icons/io";
 import { useContext, useEffect, useState } from "react";
 import { GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitleCard } from "../../components/TitleCard";
-import { TitlePage } from "../../components/TitlePage";
-import { ProfileContext } from "../..";
 
 export function Search(){
     const [titles, setTitles] = useState<titleResponseType[]>([]);
@@ -15,7 +13,6 @@ export function Search(){
     const [title, setTitle] = useState<titleResponseType>();
 
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
-    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     async function fetchTitles(){
         try{
@@ -28,7 +25,7 @@ export function Search(){
     }
 
     function FilterTitles(searchParam: string){
-        if(searchParam != ""){
+        if(searchParam !== ""){
             let auxTitles = titles.filter((title) => {
                 if(title.title.toLowerCase().includes(searchParam)){
                     return true;
@@ -50,7 +47,7 @@ export function Search(){
     return(
         <div className="container-geral-search">
             <div className="header-section">
-                <Header profile={currentProfile} />
+                <Header />
             </div>
             <div className="input-search-container">
                 <TextField 

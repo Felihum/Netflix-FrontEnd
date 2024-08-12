@@ -5,12 +5,9 @@ import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 import { Button } from "@mui/material";
 import { ExecuteLogin } from "../../controllers/UsuariosController";
-import { AuthenticationContext } from "../..";
 
 export function Login(){
-
-    const authContext = useContext(AuthenticationContext);
-
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,7 +18,6 @@ export function Login(){
     async function HandleLogin(){
         try{
             await ExecuteLogin(email, password);
-            authContext?.login();
             navigate("/change-profile")
         } catch(error){
             throw error;

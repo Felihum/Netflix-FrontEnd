@@ -70,7 +70,7 @@ export async function ExecuteLogin(email: string, password: string){
         const response = await api.post("/usuarios/login", {email, password});
         const token = response.data.token;
 
-        localStorage.setItem("token", token);
+        await localStorage.setItem("token", token);
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
     catch(error){
@@ -79,7 +79,7 @@ export async function ExecuteLogin(email: string, password: string){
 }
 
 export async function GetCurrentUsuario(){
-    const token = localStorage.getItem('token');
+    const token = await localStorage.getItem('token');
 
     if(token){
         const user = await GetUsuarioByEmail(jwtDecode<any>(token).email);

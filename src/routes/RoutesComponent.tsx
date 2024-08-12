@@ -15,30 +15,31 @@ import { DeleteAccount } from '../pages/DeleteAccount';
 import { EditProfile } from '../pages/EditProfile';
 import { EditProfileForm } from '../pages/EditProfileForm';
 import { useContext } from 'react';
-import { AuthenticationContext, SelectedProfileContext } from '..';
 
 export function RoutesComponent(){
-  const authContext = useContext(AuthenticationContext);
-  const selectedProfile = useContext(SelectedProfileContext);
+  //const authContext = useContext(AuthenticationContext);
+  const authentication = async () => await localStorage.getItem("token");
+  //const selectedProfile = useContext(SelectedProfileContext);
+  const selectedProfile = async () => await localStorage.getItem("Profile");
 
   return(
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <Home /> : <Perfis />) : <Login />} />
+        <Route path='/' element={authentication !== null ? (selectedProfile !== null ? <Home /> : <Perfis />) : <Login />} />
         <Route path='login' element={<Login />} />
         <Route path='cadastro' element={<Cadastro />} />
-        <Route path='search' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <Search /> : <Perfis />) : <Login />} />
-        <Route path='movies' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <Movies /> : <Perfis />) : <Login />} />
-        <Route path='series' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <Series /> : <Perfis />) : <Login />} />
-        <Route path='change-profile' element={authContext?.isAuthenticated ? <Perfis /> : <Login />} />
-        <Route path='add-profile' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <AddProfile /> : <Perfis />) : <Login />} />
-        <Route path='account' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <Account /> : <Perfis />) : <Login />} />
-        <Route path='edit-data' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditAccount /> : <Perfis />) : <Login />} />
-        <Route path='edit-subscription' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditSubscription /> : <Perfis />) : <Login />} />
-        <Route path='delete-account' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <DeleteAccount /> : <Perfis />) : <Login />} />
-        <Route path='edit-profile' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditProfile /> : <Perfis />) : <Login />} />
-        <Route path='edit-profile-form/:idProfile' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <EditProfileForm /> : <Perfis />) : <Login />} />
-        <Route path='title-page/:idTitle' element={authContext?.isAuthenticated ? (selectedProfile?.selectedProfile ? <TitlePage /> : <Perfis />) : <Login />} />
+        <Route path='search' element={authentication !== null ? (selectedProfile !== null ? <Search /> : <Perfis />) : <Login />} />
+        <Route path='movies' element={authentication !== null ? (selectedProfile !== null ? <Movies /> : <Perfis />) : <Login />} />
+        <Route path='series' element={authentication !== null ? (selectedProfile !== null ? <Series /> : <Perfis />) : <Login />} />
+        <Route path='change-profile' element={authentication !== null ? <Perfis /> : <Login />} />
+        <Route path='add-profile' element={authentication !== null ? (selectedProfile !== null ? <AddProfile /> : <Perfis />) : <Login />} />
+        <Route path='account' element={authentication !== null ? (selectedProfile !== null ? <Account /> : <Perfis />) : <Login />} />
+        <Route path='edit-data' element={authentication !== null ? (selectedProfile !== null ? <EditAccount /> : <Perfis />) : <Login />} />
+        <Route path='edit-subscription' element={authentication !== null ? (selectedProfile !== null ? <EditSubscription /> : <Perfis />) : <Login />} />
+        <Route path='delete-account' element={authentication !== null ? (selectedProfile !== null ? <DeleteAccount /> : <Perfis />) : <Login />} />
+        <Route path='edit-profile' element={authentication !== null ? (selectedProfile !== null ? <EditProfile /> : <Perfis />) : <Login />} />
+        <Route path='edit-profile-form/:idProfile' element={authentication !== null ? (selectedProfile !== null ? <EditProfileForm /> : <Perfis />) : <Login />} />
+        <Route path='title-page/:idTitle' element={authentication !== null ? (selectedProfile !== null ? <TitlePage /> : <Perfis />) : <Login />} />
       </Routes>
     </BrowserRouter>
   );

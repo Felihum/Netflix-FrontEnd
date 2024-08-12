@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { GetAllMovies, GetAllTitles, titleResponseType } from "../../controllers/TitlesController";
 import { TitleCard } from "../../components/TitleCard";
-import { TitlePage } from "../../components/TitlePage";
 import { Header } from "../../components/Header";
 import "./index.css";
-import { ProfileContext } from "../..";
 
 export function Movies(){
 
@@ -13,7 +11,6 @@ export function Movies(){
     const [title, setTitle] = useState<titleResponseType>();
     
     const [isTitleOpen, setIsTitleOpen] = useState<boolean>(false);
-    const [currentProfile, setCurrentProfile] = useContext(ProfileContext);
 
     async function fetchTitles(){
         try{
@@ -32,7 +29,7 @@ export function Movies(){
     return(
         <div className="container-geral-movies">
             <div className="header-section">
-                <Header profile={currentProfile} />
+                <Header />
             </div>
             <div className="title-container">
                 <h1>FILMES</h1>
